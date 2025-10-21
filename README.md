@@ -27,15 +27,52 @@ It implements the Model–View–ViewModel (MVVM) architecture and uses dependen
 - Uses a scrollable and accessible layout designed with Material Design 3 guidelines.
 
 **Architecture and Technologies Used**
-Layer	Description
-Architecture Pattern	MVVM (Model–View–ViewModel)
-Programming Language	Kotlin
-Dependency Injection	Dagger Hilt
-Networking	Retrofit2 with Moshi for JSON parsing
-UI Components	AndroidX and Material Design 3
-Testing Frameworks	JUnit4, Coroutines Test, and MockK
-Build System	Gradle (Kotlin DSL)
-API Reference
+Layer	                        Description
+Architecture Pattern	        MVVM (Model–View–ViewModel)
+Programming Language	        Kotlin
+Dependency Injection	        Dagger Hilt
+Networking	                    Retrofit2 with Moshi for JSON parsing
+UI Components	                AndroidX and Material Design 3
+Testing Frameworks	            JUnit4, Coroutines Test, and MockK
+Build System	                Gradle (Kotlin DSL)
+
+**Dependencies**
+
+This project uses modern Android libraries and frameworks to ensure clean architecture, efficient networking, and reliable testing.
+**Core Android Libraries**
+implementation("androidx.core:core-ktx:1.13.1")
+implementation("androidx.appcompat:appcompat:1.7.0")
+implementation("com.google.android.material:material:1.12.0")
+implementation("androidx.recyclerview:recyclerview:1.3.2")
+implementation("androidx.activity:activity-ktx:1.9.2")
+implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.6")
+implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.6")
+_Provides modern Android architecture components and Material UI elements._
+
+**Networking & Serialization**
+implementation("com.squareup.retrofit2:retrofit:2.11.0")
+implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
+implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
+implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+_Used for RESTful API integration, JSON parsing, and HTTP logging._
+
+**Asynchronous Processing**
+implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+_Enables structured concurrency for background operations and smooth UI handling._
+
+**Dependency Injection (Hilt)**
+implementation("com.google.dagger:hilt-android:2.51.1")
+kapt("com.google.dagger:hilt-compiler:2.51.1")
+_Simplifies dependency injection, promoting modular and testable architecture._
+
+**Testing Libraries**
+testImplementation("junit:junit:4.13.2")
+testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0")
+testImplementation("io.mockk:mockk:1.13.12")
+testImplementation("androidx.arch.core:core-testing:2.2.0")
+_Provides testing frameworks for ViewModel logic, LiveData, and coroutines._
+
+**API Reference**
 Base URL: https://nit3213api.onrender.com/
 Endpoints:
 - POST /footscray/auth : Authenticates the user and returns a keypass
