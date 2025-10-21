@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s4679306assignment2.data.remote.DashboardEntity
 import com.example.s4679306assignment2.databinding.ActivityDashboardBinding
@@ -20,7 +21,7 @@ class DashboardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDashboardBinding
     private val vm: DashboardViewModel by viewModels()
-    private lateinit var adapter: EntityAdapter
+    private val adapter = EntityAdapter(::onEntityClick)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,32 +29,29 @@ class DashboardActivity : AppCompatActivity() {
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        adapter = EntityAdapter { entity ->
-            navigateToDetails(entity)
-        }
-        binding.recycler.apply {
-            layoutManager = LinearLayoutManager(this@DashboardActivity)
-            adapter = this@DashboardActivity.adapter
-        }
+        // Recycler
+        binding.recycler.layoutManager = LinearLayoutManager(this)
+        binding.recycler.adapter = adapter
 
-        val keypass = intent.getStringExtra(EXTRA_KEYPASS) ?: ""
+        val keypass = intent.getStringExtra(EXTRA_KEYPASS).orEmpty()
         vm.load(keypass)
 
-        vm.state.observe(this) { state ->
+        vm.state.observe(this) { s ->
+            // You already have tvInfo in your layout
+            binding.tvInfo.isVisible = true
             binding.tvInfo.text = when {
-                state.loading -> "Loading dashboard..."
-                state.error != null -> state.error
-                else -> "Total: ${state.total}"
+                s.loading -> "Loading dashboard..."
+                !s.error.isNullOrBlank() -> s.error
+                else -> "Total: ${s.total}"
             }
-            adapter.submitList(state.entities)
+
+            adapter.submitList(s.entities)
         }
     }
 
-    private fun navigateToDetails(entity: DashboardEntity) {
-        startActivity(Intent(this, DetailsActivity::class.java).apply {
-            putExtra(DetailsActivity.EXTRA_P1, entity.property1 ?: "")
-            putExtra(DetailsActivity.EXTRA_P2, entity.property2 ?: "")
-            putExtra(DetailsActivity.EXTRA_DESC, entity.description ?: "")
-        })
+    private fun onEntityClick(item: DashboardEntity) {
+        val i = Intent(this, DetailsActivity::class.java)
+        i.putExtra(DetailsActivity.EXTRA_ENTITY, item)   // <-- single Parcelable extra
+        startActivity(i)
     }
 }

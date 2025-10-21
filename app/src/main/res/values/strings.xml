@@ -10,6 +10,13 @@
     <string name="err_username_format">Only letters allowed</string>
     <string name="err_password_required">Enter your student ID</string>
     <string name="err_password_format">Digits only (e.g. 12345678)</string>
+    <string name="dashboard_title">Dashboard</string>
+    <string name="dashboard_count_placeholder">Loading...</string>
+    <string name="details_title">Entity Details</string>
+    <string name="dashboard_count">Items: %1$d</string>
+
+
+
 
     <!-- API errors -->
     <string name="err_invalid_credentials">Wrong password or invalid username</string>

@@ -1,10 +1,15 @@
 package com.example.s4679306assignment2.ui.dashboard
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.s4679306assignment2.data.Repository
 import com.example.s4679306assignment2.data.remote.DashboardEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
 import javax.inject.Inject
 
 data class DashboardUiState(
@@ -27,6 +32,10 @@ class DashboardViewModel @Inject constructor(
             _state.value = DashboardUiState(error = "Missing keypass from login.")
             return
         }
+
+        // avoid double-load
+        if (_state.value?.loading == true) return
+
         _state.value = _state.value?.copy(loading = true, error = null)
         viewModelScope.launch {
             try {
@@ -34,12 +43,23 @@ class DashboardViewModel @Inject constructor(
                 _state.value = DashboardUiState(
                     loading = false,
                     entities = res.entities,
-                    total = res.entityTotal
+                    total = res.entityTotal,
+                    error = null
+                )
+            } catch (e: HttpException) {
+                _state.value = DashboardUiState(
+                    loading = false,
+                    error = "Server error (${e.code()}). Please try again."
+                )
+            } catch (_: IOException) {
+                _state.value = DashboardUiState(
+                    loading = false,
+                    error = "Network error. Pull to refresh."
                 )
             } catch (e: Exception) {
                 _state.value = DashboardUiState(
                     loading = false,
-                    error = "Failed to load: ${e.message ?: "Unknown error"}"
+                    error = e.message ?: "Unknown error"
                 )
             }
         }

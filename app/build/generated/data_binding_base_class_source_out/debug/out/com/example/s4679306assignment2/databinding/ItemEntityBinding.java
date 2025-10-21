@@ -4,20 +4,20 @@ package com.example.s4679306assignment2.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.s4679306assignment2.R;
+import com.google.android.material.card.MaterialCardView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class ItemEntityBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final MaterialCardView rootView;
 
   @NonNull
   public final TextView tvSubtitle;
@@ -25,7 +25,7 @@ public final class ItemEntityBinding implements ViewBinding {
   @NonNull
   public final TextView tvTitle;
 
-  private ItemEntityBinding(@NonNull LinearLayout rootView, @NonNull TextView tvSubtitle,
+  private ItemEntityBinding(@NonNull MaterialCardView rootView, @NonNull TextView tvSubtitle,
       @NonNull TextView tvTitle) {
     this.rootView = rootView;
     this.tvSubtitle = tvSubtitle;
@@ -34,7 +34,7 @@ public final class ItemEntityBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public MaterialCardView getRoot() {
     return rootView;
   }
 
@@ -71,7 +71,7 @@ public final class ItemEntityBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemEntityBinding((LinearLayout) rootView, tvSubtitle, tvTitle);
+      return new ItemEntityBinding((MaterialCardView) rootView, tvSubtitle, tvTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

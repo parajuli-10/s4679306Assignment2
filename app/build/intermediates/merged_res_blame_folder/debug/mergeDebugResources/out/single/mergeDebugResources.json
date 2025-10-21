@@ -24,6 +24,10 @@
         "source": "com.example.s4679306assignment2.app-main-40:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
+        "merged": "com.example.s4679306assignment2.app-debug-38:/drawable_ic_arrow_back_24.xml.flat",
+        "source": "com.example.s4679306assignment2.app-main-40:/drawable/ic_arrow_back_24.xml"
+    },
+    {
         "merged": "com.example.s4679306assignment2.app-debug-38:/layout_activity_dashboard.xml.flat",
         "source": "com.example.s4679306assignment2.app-main-40:/layout/activity_dashboard.xml"
     },

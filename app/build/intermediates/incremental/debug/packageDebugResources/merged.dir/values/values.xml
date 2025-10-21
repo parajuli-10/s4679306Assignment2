@@ -8,6 +8,10 @@
     <color name="teal_200">#03DAC5</color>
     <color name="white">#FFFFFF</color>
     <string name="app_name">s4679306Assignment2</string>
+    <string name="dashboard_count">Items: %1$d</string>
+    <string name="dashboard_count_placeholder">Loading...</string>
+    <string name="dashboard_title">Dashboard</string>
+    <string name="details_title">Entity Details</string>
     <string name="err_invalid_credentials">Wrong password or invalid username</string>
     <string name="err_network">Network error. Check your connection.</string>
     <string name="err_password_format">Digits only (e.g. 12345678)</string>

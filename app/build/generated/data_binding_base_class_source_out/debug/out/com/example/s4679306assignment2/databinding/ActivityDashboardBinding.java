@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.s4679306assignment2.R;
+import com.google.android.material.appbar.MaterialToolbar;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -24,12 +25,16 @@ public final class ActivityDashboardBinding implements ViewBinding {
   public final RecyclerView recycler;
 
   @NonNull
+  public final MaterialToolbar topAppBar;
+
+  @NonNull
   public final TextView tvInfo;
 
   private ActivityDashboardBinding(@NonNull LinearLayout rootView, @NonNull RecyclerView recycler,
-      @NonNull TextView tvInfo) {
+      @NonNull MaterialToolbar topAppBar, @NonNull TextView tvInfo) {
     this.rootView = rootView;
     this.recycler = recycler;
+    this.topAppBar = topAppBar;
     this.tvInfo = tvInfo;
   }
 
@@ -66,13 +71,19 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.topAppBar;
+      MaterialToolbar topAppBar = ViewBindings.findChildViewById(rootView, id);
+      if (topAppBar == null) {
+        break missingId;
+      }
+
       id = R.id.tvInfo;
       TextView tvInfo = ViewBindings.findChildViewById(rootView, id);
       if (tvInfo == null) {
         break missingId;
       }
 
-      return new ActivityDashboardBinding((LinearLayout) rootView, recycler, tvInfo);
+      return new ActivityDashboardBinding((LinearLayout) rootView, recycler, topAppBar, tvInfo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

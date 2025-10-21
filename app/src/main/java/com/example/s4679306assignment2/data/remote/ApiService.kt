@@ -1,6 +1,11 @@
 package com.example.s4679306assignment2.data.remote
 
-import retrofit2.http.*
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 
 data class LoginRequest(
     val username: String,
@@ -11,11 +16,12 @@ data class LoginResponse(
     val keypass: String
 )
 
+@Parcelize
 data class DashboardEntity(
     val property1: String? = null,
     val property2: String? = null,
     val description: String? = null
-)
+) : Parcelable
 
 data class DashboardResponse(
     val entities: List<DashboardEntity> = emptyList(),

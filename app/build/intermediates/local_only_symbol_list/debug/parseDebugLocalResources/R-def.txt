@@ -7,6 +7,7 @@ color purple_500
 color purple_700
 color teal_200
 color white
+drawable ic_arrow_back_24
 drawable ic_launcher_foreground
 id btnLogin
 id etPassword
@@ -15,6 +16,7 @@ id loadingOverlay
 id recycler
 id tilPassword
 id tilUsername
+id topAppBar
 id tvDesc
 id tvError
 id tvInfo
@@ -30,6 +32,10 @@ mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 string app_name
+string dashboard_count
+string dashboard_count_placeholder
+string dashboard_title
+string details_title
 string err_invalid_credentials
 string err_network
 string err_password_format
