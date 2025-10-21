@@ -410,15 +410,15 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_example_s4679306assignment2_ui_login_LoginViewModel = "com.example.s4679306assignment2.ui.login.LoginViewModel";
-
       static String com_example_s4679306assignment2_ui_dashboard_DashboardViewModel = "com.example.s4679306assignment2.ui.dashboard.DashboardViewModel";
 
-      @KeepFieldType
-      LoginViewModel com_example_s4679306assignment2_ui_login_LoginViewModel2;
+      static String com_example_s4679306assignment2_ui_login_LoginViewModel = "com.example.s4679306assignment2.ui.login.LoginViewModel";
 
       @KeepFieldType
       DashboardViewModel com_example_s4679306assignment2_ui_dashboard_DashboardViewModel2;
+
+      @KeepFieldType
+      LoginViewModel com_example_s4679306assignment2_ui_login_LoginViewModel2;
     }
   }
 
@@ -462,15 +462,15 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_example_s4679306assignment2_ui_dashboard_DashboardViewModel = "com.example.s4679306assignment2.ui.dashboard.DashboardViewModel";
-
       static String com_example_s4679306assignment2_ui_login_LoginViewModel = "com.example.s4679306assignment2.ui.login.LoginViewModel";
 
-      @KeepFieldType
-      DashboardViewModel com_example_s4679306assignment2_ui_dashboard_DashboardViewModel2;
+      static String com_example_s4679306assignment2_ui_dashboard_DashboardViewModel = "com.example.s4679306assignment2.ui.dashboard.DashboardViewModel";
 
       @KeepFieldType
       LoginViewModel com_example_s4679306assignment2_ui_login_LoginViewModel2;
+
+      @KeepFieldType
+      DashboardViewModel com_example_s4679306assignment2_ui_dashboard_DashboardViewModel2;
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
