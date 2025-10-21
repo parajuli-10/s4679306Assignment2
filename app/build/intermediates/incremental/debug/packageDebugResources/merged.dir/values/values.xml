@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="white">#FFFFFF</color>
+    <string name="app_name">s4679306Assignment2</string>
+    <string name="err_invalid_credentials">Wrong password or invalid username</string>
+    <string name="err_network">Network error. Check your connection.</string>
+    <string name="err_password_format">Digits only (e.g. 12345678)</string>
+    <string name="err_password_required">Enter your student ID</string>
+    <string name="err_server">Server error. Please try again.</string>
+    <string name="err_username_format">Only letters allowed</string>
+    <string name="err_username_required">Enter your first name</string>
+    <string name="login_cta">Login</string>
+    <string name="login_title">Welcome</string>
+    <string name="password_hint">Password (student ID)</string>
+    <string name="username_hint">Username (first name)</string>
+    <style name="Theme.S4679306" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+    </style>
+    <style name="Theme.S4679306.NoActionBar" parent="Theme.S4679306"/>
+</resources>

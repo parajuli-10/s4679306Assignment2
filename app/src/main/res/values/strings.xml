@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">s4679306Assignment2</string>
+    <string name="login_title">Welcome</string>
+    <string name="username_hint">Username (first name)</string>
+    <string name="password_hint">Password (student ID)</string>
+    <string name="login_cta">Login</string>
+
+    <!-- Validation -->
+    <string name="err_username_required">Enter your first name</string>
+    <string name="err_username_format">Only letters allowed</string>
+    <string name="err_password_required">Enter your student ID</string>
+    <string name="err_password_format">Digits only (e.g. 12345678)</string>
+
+    <!-- API errors -->
+    <string name="err_invalid_credentials">Wrong password or invalid username</string>
+    <string name="err_network">Network error. Check your connection.</string>
+    <string name="err_server">Server error. Please try again.</string>
+</resources>
